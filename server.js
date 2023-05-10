@@ -1,8 +1,12 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 
+// app.get("/", (req, res) => {
+//   res.send("Hello World! This is Flavio Herrera");
+// });
 app.get("/", (req, res) => {
-  res.send("Hello World! This is Flavio Herrera");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 const port = process.env.PORT || 3000;
