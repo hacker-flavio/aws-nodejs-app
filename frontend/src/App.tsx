@@ -1,8 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
 
 function App() {
+  const test = async () => {
+    axios
+      .get("/test")
+      .then(async (response) => {
+        alert(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +30,8 @@ function App() {
         >
           Learn React
         </a>
+
+        <button onClick={() => test()}>click me</button>
       </header>
     </div>
   );
