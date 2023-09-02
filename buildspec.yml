@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - cd frontend && npm install
+      - cd frontend && npm run build
+      - npm install
+
+artifacts:
+  files: "**/*"
