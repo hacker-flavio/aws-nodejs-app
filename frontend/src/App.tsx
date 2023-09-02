@@ -31,7 +31,7 @@ function App() {
           Learn React
         </a>
 
-        <button onClick={() => test()}>click me</button>
+        <button onClick={() => test()}>click me : )</button>
       </header>
     </div>
   );
