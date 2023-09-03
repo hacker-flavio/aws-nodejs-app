@@ -28,10 +28,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React with Typescript
         </a>
 
-        <button onClick={() => test()}>click me</button>
+        <button onClick={() => test()}>click me : )</button>
+        <div>Hi this is flavio herrera</div>
       </header>
     </div>
   );
