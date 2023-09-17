@@ -59,7 +59,7 @@ app.get("/sendmessage", (req, res) => {
   // Emit the message to all clients in the "room1" room
   io.to("room1").emit("messageFromServer", { image: image });
 
-  res.status(200).send("Message sent successfully");
+  res.status(200).send("Message sent successfully...");
 });
 
 app.get("/channelMessage", (req, res) => {
