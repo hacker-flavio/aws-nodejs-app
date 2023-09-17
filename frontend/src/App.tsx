@@ -49,6 +49,7 @@ import axios from "axios";
 
 function App() {
   const [image, setImage] = React.useState("");
+  const [message, setMessage] = React.useState("");
 
   const test = async () => {
     const queryParams = {
@@ -57,6 +58,23 @@ function App() {
 
     axios
       .get("/sendmessage", {
+        params: queryParams,
+      })
+      .then(async (response) => {
+        alert(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const sendMessage = async () => {
+    const queryParams = {
+      message: message,
+    };
+
+    axios
+      .get("/channelMessage", {
         params: queryParams,
       })
       .then(async (response) => {
@@ -100,6 +118,14 @@ function App() {
           welcome to my shitty app i still dont have ssl, someone please help me
         </div>
         <div>yea this website sucks ass but who cares : )</div>
+        <input
+          type="text"
+          placeholder="send message as flavio to np server, please dont get me mutted : ("
+          style={{ width: "900px" }}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button onClick={() => sendMessage()}>send message : )</button>
       </header>
     </div>
   );

@@ -57,9 +57,20 @@ app.get("/sendmessage", (req, res) => {
   // const message = req.body.message; // Assuming you have middleware to parse the request body
   const message = "hello world";
   // Emit the message to all clients in the "room1" room
-  io.to("room1").emit("messageFromServer", { image });
+  io.to("room1").emit("messageFromServer", { image: image });
 
   res.status(200).send("Message sent successfully");
+});
+
+app.get("/channelMessage", (req, res) => {
+  const { message } = req.query;
+  console.log(message);
+  // const message = req.body.message; // Assuming you have middleware to parse the request body
+
+  // Emit the message to all clients in the "room1" room
+  io.to("room1").emit("messageFromServer", { message: message });
+
+  res.status(200).send("Message sent successfully to channel");
 });
 
 const port = process.env.PORT || 443;
