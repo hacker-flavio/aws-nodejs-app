@@ -52,10 +52,11 @@ io.on("connection", (socket) => {
 
 // POST route to emit an event to all clients in the "room1" room
 app.post("/sendmessage", (req, res) => {
+  const { image } = req.body;
   // const message = req.body.message; // Assuming you have middleware to parse the request body
   const message = "hello world";
   // Emit the message to all clients in the "room1" room
-  io.to("room1").emit("messageFromServer", { message });
+  io.to("room1").emit("messageFromServer", { image });
 
   res.status(200).send("Message sent successfully");
 });
