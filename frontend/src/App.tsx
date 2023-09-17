@@ -42,17 +42,22 @@
 // }
 
 // export default App;
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 
 function App() {
   const [image, setImage] = React.useState("");
+
   const test = async () => {
+    const queryParams = {
+      image: image,
+    };
+
     axios
-      .post("/sendmessage", {
-        image: image,
+      .get("/sendmessage", {
+        params: queryParams,
       })
       .then(async (response) => {
         alert(response.data);
@@ -61,6 +66,10 @@ function App() {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    console.log("image", image);
+  }, [image]);
 
   return (
     <div className="App">
