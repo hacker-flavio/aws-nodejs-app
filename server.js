@@ -73,6 +73,19 @@ app.get("/channelMessage", (req, res) => {
   res.status(200).send("Message sent successfully to channel");
 });
 
+// Define an API route for checking the password
+app.get("/checkPassword", async (req, res) => {
+  const { password } = req.query;
+
+  // Replace this with your actual password check logic
+  // For demonstration purposes, we'll check against a hardcoded password.
+  if (password === "flavio") {
+    res.status(200).json("correct");
+  } else {
+    res.status(401).json("incorrect");
+  }
+});
+
 const port = process.env.PORT || 443;
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
