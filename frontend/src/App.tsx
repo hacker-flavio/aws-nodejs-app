@@ -56,6 +56,7 @@ function App() {
   const test = async () => {
     const queryParams = {
       image: image,
+      password: password,
     };
 
     axios
@@ -73,6 +74,7 @@ function App() {
   const sendMessage = async () => {
     const queryParams = {
       message: message,
+      password: password,
     };
 
     axios
