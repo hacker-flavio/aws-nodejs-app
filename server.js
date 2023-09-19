@@ -79,7 +79,7 @@ app.get("/checkPassword", async (req, res) => {
 
   // Replace this with your actual password check logic
   // For demonstration purposes, we'll check against a hardcoded password.
-  if (password === "flavio") {
+  if (password === "gtgruhgruthgrotigurgrtingrtiug557893475893458444h749v") {
     res.status(200).json("correct");
   } else {
     res.status(401).json("incorrect");
