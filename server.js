@@ -52,23 +52,31 @@ io.on("connection", (socket) => {
 
 // POST route to emit an event to all clients in the "room1" room
 app.get("/sendmessage", (req, res) => {
-  const { image } = req.query;
+  const { image, password } = req.query;
   console.log(image);
+  console.log(password);
   // const message = req.body.message; // Assuming you have middleware to parse the request body
   const message = "hello world";
   // Emit the message to all clients in the "room1" room
-  io.to("room1").emit("messageFromServer", { image: image });
+  io.to("room1").emit("messageFromServer", {
+    image: image,
+    password: password,
+  });
 
   res.status(200).send("Message sent successfully...");
 });
 
 app.get("/channelMessage", (req, res) => {
-  const { message } = req.query;
+  const { message, password } = req.query;
   console.log(message);
+  console.log(password);
   // const message = req.body.message; // Assuming you have middleware to parse the request body
 
   // Emit the message to all clients in the "room1" room
-  io.to("room1").emit("messageFromServer", { message: message });
+  io.to("room1").emit("messageFromServer", {
+    message: message,
+    password: password,
+  });
 
   res.status(200).send("Message sent successfully to channel");
 });
