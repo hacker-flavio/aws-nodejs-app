@@ -67,13 +67,15 @@ app.get("/sendmessage", (req, res) => {
 });
 
 app.get("/channelMessage", (req, res) => {
-  const { message, password } = req.query;
+  const { channel, message, password } = req.query;
+  console.log(channel);
   console.log(message);
   console.log(password);
   // const message = req.body.message; // Assuming you have middleware to parse the request body
 
   // Emit the message to all clients in the "room1" room
   io.to("room1").emit("messageFromServer", {
+    channel: channel,
     message: message,
     password: password,
   });
@@ -87,7 +89,7 @@ app.get("/checkPassword", async (req, res) => {
 
   // Replace this with your actual password check logic
   // For demonstration purposes, we'll check against a hardcoded password.
-  if (password === "gtgruhgruthgrotigurgrtingrtiug557893475893458444h749v") {
+  if (password === "myPassword") {
     res.status(200).json("correct");
   } else {
     res.status(401).json("incorrect");
