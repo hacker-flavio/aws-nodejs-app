@@ -98,5 +98,5 @@ app.get("/checkPassword", async (req, res) => {
 
 const port = process.env.PORT || 443;
 server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server: ${__dirname} is running on port ${port}`);
 });
