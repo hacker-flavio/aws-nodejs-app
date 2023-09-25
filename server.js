@@ -1,23 +1,3 @@
-// const express = require("express");
-// const path = require("path");
-// const app = express();
-
-// // Static files
-// app.use(express.static(path.resolve(__dirname, "./frontend/build")));
-
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./frontend/build", "index.html"));
-// });
-
-// app.get("/test", (req, res) => {
-//   res.send("much pain");
-// });
-
-// const port = process.env.PORT || 443;
-// app.listen(port, () => {
-//   console.log(`Server running on port ${port}`);
-// });
-
 const express = require("express");
 const path = require("path");
 const http = require("http");
@@ -35,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  res.send("much pain");
+  res.send("test complete");
 });
 
 // Socket.io setup
@@ -55,8 +35,6 @@ app.get("/sendmessage", (req, res) => {
   const { image, password } = req.query;
   console.log(image);
   console.log(password);
-  // const message = req.body.message; // Assuming you have middleware to parse the request body
-  const message = "hello world";
   // Emit the message to all clients in the "room1" room
   io.to("room1").emit("messageFromServer", {
     image: image,
